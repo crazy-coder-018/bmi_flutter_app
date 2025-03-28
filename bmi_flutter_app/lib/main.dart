@@ -25,6 +25,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -33,19 +35,41 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: Text(
-          'BMI Calculation App',
-          style: TextStyle(
-            color: Colors.blue,
-            fontSize: 24,
-            fontWeight: FontWeight.w700,
-          ),
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Text
+            Padding(
+              padding: const EdgeInsets.only(top: 22.0, left: 16.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  // BMI Text
+                  Text(
+                    'BMI ',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+
+                  // Calculation App Text
+                  Text(
+                    'Calculation App',
+                    style: TextStyle(color: Colors.grey[700], fontSize: 18),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(height: 32),
+
+            // Teext Field
+          ],
         ),
-        centerTitle: true,
       ),
-      body: Container(width: 100),
     );
   }
 }
