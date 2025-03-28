@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         centerTitle: true,
       ),
-      body: Container(),
+      body: Container(width: 100),
     );
   }
 }
