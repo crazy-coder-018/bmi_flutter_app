@@ -32,6 +32,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // Controllers
+  var weightController = TextEditingController();
+  var feetController = TextEditingController();
+  var inchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  // BMI Text
+                  // BMI (Text)
                   Text(
                     'BMI ',
                     style: TextStyle(
@@ -55,10 +60,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
 
-                  // Calculation App Text
+                  // Calculation App (Text)
                   Text(
                     'Calculation App',
-                    style: TextStyle(color: Colors.grey[700], fontSize: 18),
+                    style: TextStyle(color: Colors.grey[800], fontSize: 18),
                   ),
                 ],
               ),
@@ -67,6 +72,29 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 32),
 
             // Teext Field
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0),
+              child: SizedBox(
+                width: 200,
+                child: TextField(
+                  controller: weightController,
+                  cursorColor: Colors.blue,
+                  cursorHeight: 22,
+                  decoration: InputDecoration(
+                    hintText: 'Enter your Weight',
+                    hintStyle: TextStyle(color: Colors.grey),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
