@@ -22,7 +22,10 @@ class MyTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 16.0, right: 16.0),
       child: SizedBox(
+        // Text field max size
         width: 400,
+
+        // Text Field
         child: TextField(
           // Text Field Controller
           controller: myController,
