@@ -67,8 +67,50 @@ class _MyHomePageState extends State<MyHomePage> {
 
             SizedBox(height: 32),
 
-            // Text Field
-            MyTextField(myController: TextEditingController()),
+            // Text Fields
+            Column(
+              children: [
+                // Weight
+                MyTextField(
+                  labelText: 'Your Weight',
+                  myController: TextEditingController(),
+                  hintText: 'Enter your Weight',
+                  icon: Icon(
+                    Icons.line_weight_rounded,
+                    size: 18,
+                    color: Colors.grey,
+                  ),
+                ),
+
+                SizedBox(height: 18),
+
+                // Feet
+                MyTextField(
+                  labelText: 'Your Height (Feet)',
+                  myController: TextEditingController(),
+                  hintText: 'Enter your Height ',
+                  icon: Icon(
+                    Icons.height_rounded,
+                    size: 18,
+                    color: Colors.grey,
+                  ),
+                ),
+
+                SizedBox(height: 18),
+
+                // Inches
+                MyTextField(
+                  labelText: 'Your Height (Inch)',
+                  myController: TextEditingController(),
+                  hintText: 'Enter your Height ',
+                  icon: Icon(
+                    Icons.height_rounded,
+                    size: 18,
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

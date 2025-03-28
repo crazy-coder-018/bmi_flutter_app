@@ -5,7 +5,17 @@ import 'package:flutter/material.dart';
 class MyTextField extends StatelessWidget {
   var myController = TextEditingController();
 
-  MyTextField({super.key, required this.myController});
+  final String hintText;
+  final String labelText;
+  final Icon icon;
+
+  MyTextField({
+    super.key,
+    required this.myController,
+    required this.hintText,
+    required this.icon,
+    required this.labelText,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +27,13 @@ class MyTextField extends StatelessWidget {
           controller: myController,
           cursorColor: Colors.blue,
           cursorHeight: 22,
+          keyboardType: TextInputType.numberWithOptions(),
           decoration: InputDecoration(
-            hintText: 'Enter your Weight',
-            hintStyle: TextStyle(color: Colors.grey),
+            label: Text(labelText),
+            labelStyle: TextStyle(fontSize: 14, color: Colors.grey),
+            prefixIcon: icon,
+            hintText: hintText,
+            hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.grey),
               borderRadius: BorderRadius.circular(12),
