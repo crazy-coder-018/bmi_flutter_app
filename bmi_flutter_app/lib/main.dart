@@ -102,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 MyTextField(
                   labelText: 'Your Height (Inch)',
                   myController: TextEditingController(),
-                  hintText: 'Enter your Height ',
+                  hintText: 'Enter your Height',
                   icon: Icon(
                     Icons.height_rounded,
                     size: 18,
