@@ -44,9 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Padding(
               padding: const EdgeInsets.only(top: 22.0, left: 16.0),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // BMI (Text)
+                  // BMI stands for "Body Mass Index", (Text)
                   Text(
                     'BMI ',
                     style: TextStyle(
