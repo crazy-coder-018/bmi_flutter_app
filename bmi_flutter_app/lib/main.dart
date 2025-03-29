@@ -2,8 +2,6 @@
 
 import 'package:bmi_flutter_app/buttons/calculated_button.dart';
 import 'package:bmi_flutter_app/widgets/my_text_field.dart';
-import 'package:bmi_flutter_app/widgets/my_text_field_2.dart';
-import 'package:bmi_flutter_app/widgets/my_text_field_3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -93,9 +91,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(height: 24),
 
                   // Feet
-                  MyTextField2(
+                  MyTextField(
                     labelText: 'Your Height (Feet)',
-                    myController2: htController,
+                    myController: htController,
                     hintText: 'Enter your Height in Feet',
                     icon: Icon(
                       Icons.height_rounded,
@@ -107,9 +105,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(height: 24),
 
                   // Inches
-                  MyTextField3(
+                  MyTextField(
                     labelText: 'Your Height (Inch)',
-                    myController3: inController,
+                    myController: inController,
                     hintText: 'Enter your Height in Inches',
                     icon: Icon(
                       Icons.height_rounded,
@@ -131,8 +129,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
                   if (weight != "" && feet != "" && inch != "") {
                     // BMI Calculation
+                    var intWeight = int.parse(weight);
+                    var intFeet = int.parse(feet);
+                    var intInch = int.parse(inch);
+
+                    var totalInches = (intFeet * 12) + intInch;
+                    var totalCm = totalInches * 2.54;
+                    var totalMeter = totalCm / 100;
+
+                    var bodyMassIndex = intWeight / (totalMeter * totalMeter);
+
                     setState(() {
-                      result = 'The result';
+                      result =
+                          'Your Total BMI is : ${bodyMassIndex.toStringAsFixed(2)}';
                     });
                   } else {
                     setState(() {
@@ -146,25 +155,107 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(height: 24),
 
               // Showing the result
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Column(
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Center(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      // The Result after calculation
-                      Text(
-                        result,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.blue,
-                        ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          // The Result after calculation
+                          Text(
+                            result,
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w800,
+                              color: Colors.grey[700],
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
+                ),
+              ),
+
+              // Chart of BMI Calculation is you're fit or not
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: 320,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Container(
+                          color: Colors.grey[200],
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                //BMI Range
+                                Text(
+                                  'BMI Range',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.blue,
+                                  ),
+                                ),
+                                SizedBox(height: 14),
+                                Text(
+                                  '< 18.5',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.grey[700],
+                                  ),
+                                ),
+                                SizedBox(height: 4),
+                                Text(
+                                  '18.5 - 24.9',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.grey[700],
+                                  ),
+                                ),
+                                SizedBox(height: 4),
+                                Text(
+                                  '25 - 29.9',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.grey[700],
+                                  ),
+                                ),
+                                SizedBox(height: 4),
+                                Text(
+                                  '30+',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.grey[700],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            //BMI Category
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
