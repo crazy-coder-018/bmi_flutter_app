@@ -45,23 +45,23 @@ class _MyHomePageState extends State<MyHomePage> {
             // Text
             Padding(
               padding: const EdgeInsets.only(top: 22.0, left: 16.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // BMI stands for "Body Mass Index", (Text)
                   Text(
-                    'BMI ',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    'calculate you\'re ',
+                    style: TextStyle(color: Colors.grey[800], fontSize: 16),
                   ),
 
                   // Calculation App (Text)
                   Text(
-                    'Calculation App',
-                    style: TextStyle(color: Colors.grey[800], fontSize: 18),
+                    'Body Mass Index',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 36,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ],
               ),
@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 MyTextField(
                   labelText: 'Your Weight',
                   myController: TextEditingController(),
-                  hintText: 'Enter your Weight',
+                  hintText: 'Enter your Weight in Kg',
                   icon: Icon(
                     Icons.line_weight_rounded,
                     size: 18,
@@ -84,13 +84,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
 
-                SizedBox(height: 18),
+                SizedBox(height: 24),
 
                 // Feet
                 MyTextField2(
                   labelText: 'Your Height (Feet)',
                   myController2: TextEditingController(),
-                  hintText: 'Enter your Height ',
+                  hintText: 'Enter your Height in Feet',
                   icon: Icon(
                     Icons.height_rounded,
                     size: 18,
@@ -98,13 +98,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
 
-                SizedBox(height: 18),
+                SizedBox(height: 24),
 
                 // Inches
                 MyTextField3(
                   labelText: 'Your Height (Inch)',
                   myController3: TextEditingController(),
-                  hintText: 'Enter your Height',
+                  hintText: 'Enter your Height in Inches',
                   icon: Icon(
                     Icons.height_rounded,
                     size: 18,
