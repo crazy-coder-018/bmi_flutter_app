@@ -1,6 +1,8 @@
 // ignore_for_file: unnecessary_import
 
 import 'package:bmi_flutter_app/widgets/my_text_field.dart';
+import 'package:bmi_flutter_app/widgets/my_text_field_2.dart';
+import 'package:bmi_flutter_app/widgets/my_text_field_3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -85,9 +87,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(height: 18),
 
                 // Feet
-                MyTextField(
+                MyTextField2(
                   labelText: 'Your Height (Feet)',
-                  myController: TextEditingController(),
+                  myController2: TextEditingController(),
                   hintText: 'Enter your Height ',
                   icon: Icon(
                     Icons.height_rounded,
@@ -99,9 +101,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(height: 18),
 
                 // Inches
-                MyTextField(
+                MyTextField3(
                   labelText: 'Your Height (Inch)',
-                  myController: TextEditingController(),
+                  myController3: TextEditingController(),
                   hintText: 'Enter your Height',
                   icon: Icon(
                     Icons.height_rounded,
