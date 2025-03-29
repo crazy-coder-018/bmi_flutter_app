@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CalculatedButton extends StatelessWidget {
-  const CalculatedButton({super.key});
+  final VoidCallback callback;
+
+  const CalculatedButton({super.key, required this.callback});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,7 @@ class CalculatedButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
-            onPressed: () {},
+            onPressed: callback,
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.only(
                 left: 100,
