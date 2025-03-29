@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_import, unused_local_variable
 
 import 'package:bmi_flutter_app/buttons/calculated_button.dart';
+import 'package:bmi_flutter_app/widgets/bmi_cahrt.dart';
 import 'package:bmi_flutter_app/widgets/my_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -171,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w800,
-                              color: Colors.grey[700],
+                              color: Colors.blue[700],
                             ),
                           ),
                         ],
@@ -181,82 +182,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
 
+              SizedBox(height: 24),
+
               // Chart of BMI Calculation is you're fit or not
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 320,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        Container(
-                          color: Colors.grey[200],
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                //BMI Range
-                                Text(
-                                  'BMI Range',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.blue,
-                                  ),
-                                ),
-                                SizedBox(height: 14),
-                                Text(
-                                  '< 18.5',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.grey[700],
-                                  ),
-                                ),
-                                SizedBox(height: 4),
-                                Text(
-                                  '18.5 - 24.9',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.grey[700],
-                                  ),
-                                ),
-                                SizedBox(height: 4),
-                                Text(
-                                  '25 - 29.9',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.grey[700],
-                                  ),
-                                ),
-                                SizedBox(height: 4),
-                                Text(
-                                  '30+',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.grey[700],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Column(
-                          children: [
-                            //BMI Category
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              BmiCahrt(),
             ],
           ),
         ),
