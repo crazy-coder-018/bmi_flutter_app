@@ -113,6 +113,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
+
+            SizedBox(height: 32),
+
+            // Calculation Button
           ],
         ),
       ),
