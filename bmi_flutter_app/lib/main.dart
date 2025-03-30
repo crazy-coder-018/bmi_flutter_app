@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_import, unused_local_variable
 
 import 'package:bmi_flutter_app/buttons/calculated_button.dart';
-import 'package:bmi_flutter_app/widgets/bmi_cahrt.dart';
 import 'package:bmi_flutter_app/widgets/my_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -39,9 +38,11 @@ class _MyHomePageState extends State<MyHomePage> {
   var htController = TextEditingController();
   var inController = TextEditingController();
   var result = "";
+  var backgroundColor = Colors.grey[700];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -139,10 +140,25 @@ class _MyHomePageState extends State<MyHomePage> {
                     var totalMeter = totalCm / 100;
 
                     var bodyMassIndex = intWeight / (totalMeter * totalMeter);
+                    String message;
+
+                    if (bodyMassIndex < 18.5) {
+                      //
+                      message = 'Sorry You\'re Underweight';
+                      backgroundColor = Colors.orange.shade500;
+                    } else if (bodyMassIndex >= 25) {
+                      //
+                      message = 'OMG You\'re Overweight';
+                      backgroundColor = Colors.orange.shade900;
+                    } else {
+                      //
+                      message = 'Congratulations You\'re Healthy';
+                      backgroundColor = Colors.green.shade800;
+                    }
 
                     setState(() {
                       result =
-                          'Your Total BMI is : ${bodyMassIndex.toStringAsFixed(2)}';
+                          'Total BMI is : ${bodyMassIndex.toStringAsFixed(2)} | "$message"';
                     });
                   } else {
                     setState(() {
@@ -172,7 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w800,
-                              color: Colors.blue[700],
+                              color: backgroundColor,
                             ),
                           ),
                         ],
@@ -183,9 +199,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
 
               SizedBox(height: 24),
-
-              // Chart of BMI Calculation is you're fit or not
-              BmiCahrt(),
             ],
           ),
         ),
