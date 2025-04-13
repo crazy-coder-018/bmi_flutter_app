@@ -152,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       backgroundColor = Colors.orange.shade900;
                     } else {
                       //
-                      message = 'Congratulations You\'re Healthy';
+                      message = 'Congrats You\'re Healthy';
                       backgroundColor = Colors.green.shade800;
                     }
 
